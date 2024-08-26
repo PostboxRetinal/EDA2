@@ -3,7 +3,7 @@ class city{
         this.name = name;
         this.nodes = [];
         this.adjList = {};
-       }
+    }
 
     addNode(node){
         this.nodes.push(node);
@@ -16,7 +16,7 @@ class city{
     }
 
     printGraph(){
-
+        console.log(this.adjList);
     }
 
     searchNode(value){
@@ -39,7 +39,6 @@ class person{
     constructor(name, Age){
         this.name = name;
         this.Age = Age;
-        this.city = city;
         this.nodes = [];
         this.adjList = {};
     }

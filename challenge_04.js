@@ -1,9 +1,31 @@
+//Queue of people in one ATM, using the time of arrival to sort the queue
+
 class atm{
     constructor(){
         this.queue = [];
     }
-    enqueue(persona){
-        return this.queue.push(persona);
+    parseTime(time) {
+        //Función para convertir la hora en minutos después de medianoche y poder comparar los tiempos
+        const [horas, minutos] = time.split(':').map(Number);
+        return horas * 60 + minutos;
+    }
+    enqueue(customer) {
+        const customerTime = this.parseTime(customer.arriveTime); //ejecutar la función parseTime
+        let inserted = false; //variable para saber si se insertó el cliente
+
+        for (let i = 0; i < this.queue.length; i++) {
+            if (this.parseTime(this.queue[i].arriveTime) > customerTime) {
+                this.queue.splice(i, 0, customer);
+                inserted = true;
+                break;
+            }
+        }
+
+        if (!inserted) {
+            this.queue.push(customer);
+        }
+
+        return this.queue.length;
     }
     dequeue(){
         return this.queue.shift();
@@ -23,12 +45,15 @@ class atm{
 }
 
 const atmQueue = new atm();
-console.log(`Elemento # ${atmQueue.enqueue({name: 'Juan', arriveTime: '10:00'})} agregado`);
-console.log(`Elemento # ${atmQueue.enqueue({name: 'Maryo', arriveTime: '15:31'})} agregado`);
-console.log(`Elemento # ${atmQueue.enqueue({name: 'Carlos', arriveTime: '09:05'})} agregado`);
+console.log(`Cliente #${atmQueue.enqueue({name: 'Eduardo', arriveTime: '10:00'})} agregado`);
+console.log(`Cliente #${atmQueue.enqueue({name: 'Maryo', arriveTime: '15:31'})} agregado`);
+console.log(`Cliente #${atmQueue.enqueue({name: 'Carlos', arriveTime: '09:05'})} agregado`);
+console.log(`Cliente #${atmQueue.enqueue({name: 'Nicolas', arriveTime: '21:03'})} agregado`);
+console.log(`Cliente #${atmQueue.enqueue({name: 'Alejandro', arriveTime: '05:35'})} agregado`);
 
-//console.log(atmQueue.dequeue());
-console.log(`Último elemento del arreglo: ${JSON.stringify(atmQueue.peek())}\n`); //mostrar el último elemento
-console.log(`Contenido del arreglo:\n${JSON.stringify(atmQueue.print())}`); //mostrar
+console.log(`\nPrimer elemento del arreglo: ${JSON.stringify(atmQueue.peek(),null,1)}\n`); //mostrar el primer elemento, usando JSON.stringify ya que es un objeto
+for (x in atmQueue.queue){
+    console.log(`Cliente: ${JSON.stringify(atmQueue.queue[x].name)} | Hora de llegada: ${JSON.stringify(atmQueue.queue[x].arriveTime)}`);
+}
 
 
