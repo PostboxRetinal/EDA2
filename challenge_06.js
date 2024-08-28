@@ -75,7 +75,7 @@ const city1 = new City('Cali');
 const city2 = new City('Bogotá');
 const city3 = new City('Barrancabermeja');
 const city4 = new City('Medellín');
-const city5 = new City('Yumbo');
+const city5 = new City('Jamuncho');
 
 //Graph instance
 const raiz = new Graph();
@@ -106,6 +106,7 @@ raiz.addNode(person6);
 raiz.addNode(person7);
 raiz.addNode(person8);
 
+//Add edges
 raiz.addEdge(person1, city1);
 raiz.addEdge(person2, city2);
 raiz.addEdge(person3, city2);
@@ -115,5 +116,5 @@ raiz.addEdge(person6, city2);
 raiz.addEdge(person7, city1);
 raiz.addEdge(person8, city3);
 
-
+//Print graph
 console.log(raiz.peopleInCity(city1.name));

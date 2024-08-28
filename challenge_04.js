@@ -10,14 +10,13 @@ class atm{
         this.queue = [];
     }
     parseTime(time) {
-        //Función para convertir la hora en minutos después de medianoche y poder comparar los tiempos
-        //
+        //Converts the time to minutes
         const [horas, minutos] = time.split(':').map(Number);
         return horas * 60 + minutos;
     }
     enqueue(customer) {
-        const customerTime = this.parseTime(customer.arriveTime); //ejecutar la función parseTime
-        let inserted = false; //variable para saber si se insertó el cliente
+        const customerTime = this.parseTime(customer.arriveTime); //calls the function to convert the time
+        let inserted = false; 
 
         for (let i = 0; i < this.queue.length; i++) {
             if (this.parseTime(this.queue[i].arriveTime) > customerTime) {
@@ -52,7 +51,7 @@ class atm{
 
 const atmQueue = new atm();
 
-//Agregar clientes
+//Add ATM customers
 console.log(`Cliente #${atmQueue.enqueue({name: 'Eduardo', arriveTime: '10:00'})} agregado`);
 console.log(`Cliente #${atmQueue.enqueue({name: 'Maryo', arriveTime: '15:31'})} agregado`);
 console.log(`Cliente #${atmQueue.enqueue({name: 'Carlos', arriveTime: '09:05'})} agregado`);
