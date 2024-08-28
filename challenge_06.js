@@ -70,7 +70,7 @@ class Graph {
 	}
 }
 
-//Instances
+//Creating cities
 const city1 = new City('Cali');
 const city2 = new City('Bogotá');
 const city3 = new City('Barrancabermeja');
@@ -78,36 +78,42 @@ const city4 = new City('Medellín');
 const city5 = new City('Yumbo');
 
 //Graph instance
-const grafiviris = new Graph();
+const raiz = new Graph();
 
-//Adding nodes
-const person1 = new Person('Charliesiviris', 19, city1);
+//Creating people
+const person1 = new Person('Charlie', 19, city1);
 const person2 = new Person('Laura', 24, city2);
 const person3 = new Person('Michelle', 19, city2);
 const person4 = new Person('Valentina', 23, city4);
-const person5 = new Person('Bryan', 25, city3);
+const person5 = new Person('Tomás', 25, city3);
 const person6 = new Person('Andrés', 18, city2);
 const person7 = new Person('Nicole', 20, city5);
+const person8 = new Person('Alejandro', 23, city1);
 
-//Adding edges
-grafiviris.addNode(person1);
-grafiviris.addNode(city1);
-grafiviris.addNode(person2);
-grafiviris.addNode(city2);
-grafiviris.addNode(person3);
-grafiviris.addNode(city3);
-grafiviris.addNode(person4);
-grafiviris.addNode(city4);
-grafiviris.addNode(person5);
-grafiviris.addNode(city5);
-grafiviris.addNode(person6);
-grafiviris.addNode(person7);
 
-grafiviris.addEdge(person1, city1);
-grafiviris.addEdge(person2, city2);
-grafiviris.addEdge(person3, city2);
-grafiviris.addEdge(person4, city4);
-grafiviris.addEdge(person5, city3);
-grafiviris.addEdge(person6, city2);
+//Add people and cities to raiz
+raiz.addNode(person1);
+raiz.addNode(city1);
+raiz.addNode(person2);
+raiz.addNode(city2);
+raiz.addNode(person3);
+raiz.addNode(city3);
+raiz.addNode(person4);
+raiz.addNode(city4);
+raiz.addNode(person5);
+raiz.addNode(city5);
+raiz.addNode(person6);
+raiz.addNode(person7);
+raiz.addNode(person8);
 
-console.log(`${grafiviris.peopleInCity("Bogotá")}`);
+raiz.addEdge(person1, city1);
+raiz.addEdge(person2, city2);
+raiz.addEdge(person3, city2);
+raiz.addEdge(person4, city4);
+raiz.addEdge(person5, city3);
+raiz.addEdge(person6, city2);
+raiz.addEdge(person7, city1);
+raiz.addEdge(person8, city3);
+
+
+console.log(raiz.peopleInCity(city1.name));

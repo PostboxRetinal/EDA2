@@ -1,5 +1,8 @@
 /*
-Queue of people in one ATM, using the time of arrival to sort the queue
+Create and handle new queue of people in one ATM.
+
+✓Every person in the ATM must have its name and arrived time.
+✓Fill the queue with some examples of data
 */
 
 class atm{
@@ -8,6 +11,7 @@ class atm{
     }
     parseTime(time) {
         //Función para convertir la hora en minutos después de medianoche y poder comparar los tiempos
+        //
         const [horas, minutos] = time.split(':').map(Number);
         return horas * 60 + minutos;
     }
@@ -47,6 +51,8 @@ class atm{
 }
 
 const atmQueue = new atm();
+
+//Agregar clientes
 console.log(`Cliente #${atmQueue.enqueue({name: 'Eduardo', arriveTime: '10:00'})} agregado`);
 console.log(`Cliente #${atmQueue.enqueue({name: 'Maryo', arriveTime: '15:31'})} agregado`);
 console.log(`Cliente #${atmQueue.enqueue({name: 'Carlos', arriveTime: '09:05'})} agregado`);
