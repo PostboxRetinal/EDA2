@@ -1,6 +1,5 @@
 /*
-Description:
-- LinkedList challenge.
+LinkedList challenge.
 */
 class Tasks{
     constructor(task, description, next = null){
@@ -76,7 +75,6 @@ class LinkedList{
 }
 
 // Testing
-
 const list = new LinkedList();
 list.append("Tarea1", "Description 1");
 list.append("Tarea3", "Description 3");

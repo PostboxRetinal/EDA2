@@ -1,4 +1,6 @@
-//Queue of people in one ATM, using the time of arrival to sort the queue
+/*
+Queue of people in one ATM, using the time of arrival to sort the queue
+*/
 
 class atm{
     constructor(){

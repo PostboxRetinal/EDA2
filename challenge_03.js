@@ -1,3 +1,7 @@
+/*
+Create and handle a stack of books
+*/
+
 class books{
     constructor(){
         this.books = [];
@@ -6,14 +10,14 @@ class books{
         this.author;
         this.editorial;
     }
-    agregarLibro(name, isbn, author, editorial){
-        return this.books.push([name, isbn, author, editorial]);
+    agregarLibro(isbn, name, author, editorial){
+        return this.books.push([isbn, name, author, editorial]);
     }
     eliminarLibro(isbn){
         return this.books.pop(isbn);
     }
     consultarUltimo(){
-        return this.books.peek();
+        return this.books[this.books.length - 1];
     }
     size(){
         return this.books.length;
