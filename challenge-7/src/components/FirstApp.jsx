@@ -2,7 +2,7 @@ export const FirstApp = () => {
 
     return (
         <>
-            <h1>New Title</h1>
+            <h1>Challenge 7</h1>
             <span>10</span>
         </>
     )
