@@ -2,7 +2,6 @@ import {useState} from 'react';
 import {AddCategory } from './AddCategory';
 import {GifGrid} from './GifGrid';
 
-
 export const GiftExpertApp = () => {
     const [categories, setCategories] = useState(['Zodiac']);
 
