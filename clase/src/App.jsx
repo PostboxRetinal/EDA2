@@ -1,10 +1,10 @@
-import {Increment} from './components/Increment'
+import {Father} from './components/Increment'
 import './App.css'
 
 function App() {
 
   return (
-    <Increment/>
+    <Father/>
   )
 }
 
