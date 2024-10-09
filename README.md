@@ -1,5 +1,5 @@
 # Repo principal Estructura de Datos y Algoritmos II
-## Incluye 3 branches, challenges, homeworks y parciales
+## Incluye 2 branches, challenges y parciales
 
 ### Branch challenges
 Contiene los archivos de los restos suministrados en clase
