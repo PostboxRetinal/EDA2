@@ -5,6 +5,6 @@ import './index.css'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <FirstApp />
+    <FirstApp value={10} />
   </StrictMode>,
 )
