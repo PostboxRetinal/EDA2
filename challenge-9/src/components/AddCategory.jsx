@@ -13,16 +13,6 @@ export const AddCategory = ({ onAddCategory }) => {
 		onAddCategory(inputValue);
 		setInputValue('');
 	};
-
-	return (
-		<form onSubmit={(event) => onSubmit(event)}>
-			<input type="text"
-                placeholder="Buscar" 
-                value={inputValue} 
-                onChange={event => onInputChange(event)} 
-            />
-		</form>
-	);
 }
 
 AddCategory.propTypes = {

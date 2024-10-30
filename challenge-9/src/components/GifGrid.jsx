@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 import PropTypes from 'prop-types';
 
 const getGifs = async (category) => {
-    const url = `https://api.giphy.com/v1/gifs/search?api_key=9EE68wmo2x5vQQmfjbHe46sJUJ1bp4Qd&q=${category}&limit=25&offset=0&rating=g&lang=en&bundle=messaging_non_clips`;
+    const apiKey = import.meta.env.VITE_REACT_APP_GIPHY_API_KEY;
+    const url = `https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${category}&limit=25&offset=0&rating=g&lang=en&bundle=messaging_non_clips`;
     const res = await fetch(url);
     const { data } = await res.json();
 
