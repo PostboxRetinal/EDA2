@@ -3,14 +3,15 @@ import { useFetch } from '../hooks/useFetch';
 import { useCounter } from '../hooks/useCounter';
 
 export const MultipleCustomHook = () => {
-    const { counter, handleAdd } = useCounter(1);
+    const { count, handleAdd } = useCounter();
     const { data, isloading, hasError } = useFetch(
-        `https://api.breakingbadquotes.xyz/v1/quotes/`
+        `https://api.breakingbadquotes.xyz/v1/quotes/${count}`
     );
 
     return (
         <div>
             <h1>Breaking Bad Quotes</h1>
+            <p>Count: {count}</p>
             <hr />
             {isloading ? (
                 <div className="alert alert-info text-center">Loading...</div>
