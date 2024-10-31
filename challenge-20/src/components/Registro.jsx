@@ -3,8 +3,8 @@ import React, { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import { auth } from '../firebase/config'
 import { useForm } from './hooks/useForm'
-import { logout, register } from './store/slices/auth/AuthSlice'
-import { registerAuth } from './store/slices/auth/thunks'
+import { logout, register } from '../store/slices/auth/AuthSlice'
+import { registerAuth } from '../store/slices/auth/Thunks'
 
 export const Registro = () => {
     const dispatch = useDispatch()
