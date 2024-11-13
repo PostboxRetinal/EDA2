@@ -1,12 +1,19 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import TodoApp from './components/TodoApp';
+import { RTKstore } from './store/RTKstore';
 import store from './store/store';
+import TodoApp from './components/TodoApp';
+import { MultipleCustomHook } from './components/MultipleCustomHook';
 
 const App = () => (
-    <Provider store={store}>
-        <TodoApp />
-    </Provider>
+	<React.StrictMode>
+		<Provider store={store}>
+			<TodoApp />
+		</Provider>
+		<Provider store={RTKstore}>
+			<MultipleCustomHook />
+		</Provider>
+	</React.StrictMode>
 );
 
 export default App;
