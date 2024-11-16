@@ -1,7 +1,15 @@
 import { initializeApp } from 'firebase/app';
+import { getAuth } from 'firebase/auth';
 
-// TODO: Add SDKs for Firebase products that you want to use
-const firebaseConfig = import.meta.env.VITE_FIREBASE_CONFIG;
-console.log(firebaseConfig);
+const firebaseConfig = {
+	apiKey: 'AIzaSyDetxSah_1BXBWcqXetNUm5STvNNz02MuE',
+	authDomain: 'challenge20-40672.firebaseapp.com',
+	projectId: 'challenge20-40672',
+	storageBucket: 'challenge20-40672.firebasestorage.app',
+	messagingSenderId: '403659497770',
+	appId: '1:403659497770:web:f9de41fa5bd0f5665a3e53',
+	measurementId: 'G-X3NEHMCHVN',
+};
 
 const app = initializeApp(firebaseConfig);
+export const auth = getAuth(app);
