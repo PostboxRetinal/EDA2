@@ -1,18 +1,21 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import {
 	BrowserRouter as Router,
 	Routes,
 	Route,
 	useLocation,
 } from 'react-router-dom';
-
-import { AboutUs, HomePage, LoginPage, Dashboard } from './pages/index';
-import NavComponent from './components/NavComponent';
-
 import PrivateRoute from './utils/PrivateRoute';
-import { useAuth } from './context/authContext';
+import { useAuth, AuthProvider } from './context/authContext';
+import NavComponent from './components/NavComponent';
+import HomePage from './pages/HomePage';
+import AboutUs from './pages/AboutUs';
+import LoginPage from './pages/LoginPage';
+import Dashboard from './pages/Dashboard';
 
 const App = () => {
+	const currentUser = { name: 'adminDebug' }; // Dato de ejemplo
+
 	return (
 		<>
 			<NavComponent />
@@ -22,7 +25,7 @@ const App = () => {
 				<Route path="/login" element={<LoginPage />} />
 
 				<Route element={<PrivateRoute />}>
-					<Route path="/dashboard" element={<Dashboard />} />
+					<Route path="/dashboard" element={<Dashboard user={currentUser} />} />
 				</Route>
 			</Routes>
 		</>
@@ -33,20 +36,15 @@ const AppWithRouter = () => {
 	const location = useLocation();
 	const { dispatch } = useAuth();
 
-	useEffect(() => {
-		if (location.pathname !== '/login') {
-			dispatch({ type: 'SET_LAST_PAGE', payload: location.pathname });
-			return;
-		}
-	}, [location.pathname, dispatch]);
-
 	return <App />;
 };
 
-const MainApp = () => (
-	<Router>
-		<AppWithRouter />
-	</Router>
+const Root = () => (
+	<AuthProvider>
+		<Router>
+			<AppWithRouter />
+		</Router>
+	</AuthProvider>
 );
 
-export default MainApp;
+export default Root;

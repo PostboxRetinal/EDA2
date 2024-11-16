@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "../assets/css/NavComponent.css";
-import logo from "../assets/react.svg";
+import logo from "../assets/uao.png";
 import { useAuth } from "../context/authContext";
 
 const NavComponent = () => {
@@ -17,7 +17,7 @@ const NavComponent = () => {
           <nav className="nav-bar">
             <Link to="/" className="nav-logo">
               <img src={logo} alt="logo" className="logo" />
-              <p className="textLogo">React JS</p>
+              <p className="textLogo">UAO</p>
             </Link>
             <div className="nav-links">
               <Link
@@ -46,7 +46,7 @@ const NavComponent = () => {
           <nav className="nav-bar">
             <Link to="/" className="nav-logo">
               <img src={logo} alt="logo" className="logo" />
-              <p className="textLogo">React JS</p>
+              <p className="textLogo">UAO</p>
             </Link>
             <div className="nav-links">
               <Link
@@ -65,7 +65,7 @@ const NavComponent = () => {
                 to="/about"
                 className="nav-link"
               >
-                About
+                Acerca de
               </Link>
               {state.isAuthenticated && (
                 <>
