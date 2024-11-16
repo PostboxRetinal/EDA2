@@ -1,10 +1,13 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
-import NavComponent from './components/NavComponent'
+import MainApp from './App.jsx'
+import { AuthProvider } from './context/authContext';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <NavComponent />
+    <AuthProvider>
+      <MainApp />
+    </AuthProvider>
   </StrictMode>,
 )
