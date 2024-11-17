@@ -14,6 +14,7 @@ import {
 	clearError,
 	resetAuth,
 } from '../store/authSlice';
+import { handleFirebaseError } from '../firebase/handleFirebaseError';
 
 export const useAuth = () => {
 	const dispatch = useDispatch();
@@ -38,7 +39,8 @@ export const useAuth = () => {
 				);
 				return userCredential.user;
 			} catch (error) {
-				dispatch(setError(error.message));
+                const errorMessage = handleFirebaseError(error);
+                dispatch(setError(errorMessage));
 				throw error;
 			}
 		},
@@ -65,7 +67,8 @@ export const useAuth = () => {
 				);
 				return userCredential.user;
 			} catch (error) {
-				dispatch(setError(error.message));
+                const errorMessage = handleFirebaseError(error);
+                dispatch(setError(errorMessage));
 				throw error;
 			}
 		},
@@ -88,7 +91,8 @@ export const useAuth = () => {
 			);
 			return userCredential.user;
 		} catch (error) {
-			dispatch(setError(error.message));
+			const errorMessage = handleFirebaseError(error);
+            dispatch(setError(errorMessage));
 			throw error;
 		}
 	}, [dispatch]);

@@ -44,7 +44,7 @@ const Auth = () => {
 				<>
 					<div className="mb-4 text-center">
 						<h2 className="text-2xl font-bold">
-							{isRegistering ? 'Crea una cuenta' : 'Loggeate en tu cuenta'}
+							{isRegistering ? 'Crea una cuenta' : <><strong>Bienvenido!</strong><br /> Entra a tu cuenta</>}
 						</h2>
 					</div>
 
