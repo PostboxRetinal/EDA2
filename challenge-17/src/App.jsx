@@ -1,4 +1,3 @@
-// App.jsx
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import NavComponent from './components/NavComponent';
 import Home from './pages/Home';

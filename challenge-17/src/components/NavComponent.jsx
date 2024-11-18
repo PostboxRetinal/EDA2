@@ -1,4 +1,3 @@
-// NavComponent.jsx
 import { NavLink } from 'react-router-dom';
 
 const NavComponent = () => {
@@ -12,7 +11,6 @@ const NavComponent = () => {
 						Challenge17 - NavBar ☕</NavLink>
 				</div>
 
-				{/* Enlaces de Navegación */}
 				<div className="hidden md:flex space-x-6">
 					<NavLink
 						to="/"
@@ -56,7 +54,6 @@ const NavComponent = () => {
 					</NavLink>
 				</div>
 
-				{/* Mobile Menu Button */}
 				<button className="md:hidden text-white">
 					<svg
 						className="w-6 h-6"
