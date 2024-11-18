@@ -7,7 +7,6 @@ const Auth = () => {
 	const [password, setPassword] = useState('');
 	const [isRegistering, setIsRegistering] = useState(false);
 
-	// Get auth state and functions
 	const { registerWithEmail, loginWithEmail, signInWithGoogle, signOut } = useAuth();
 	const { user, loading, error } = useSelector((state) => state.auth);
 
