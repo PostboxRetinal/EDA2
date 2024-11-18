@@ -1,23 +1,26 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import { AppContextProvider } from '../context/AppContext';
-import NavComponent from './NavComponent';
-import Home from './Home';
-import About from './About';
-import Contact from './Contact';
+// App.jsx
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import NavComponent from './components/NavComponent';
+import Home from './pages/Home';
+import About from './pages/About';
+import Services from './pages/Services';
+import Contact from './pages/Contact';
 
 const App = () => {
 	return (
-		<AppContextProvider>
-			<Router>
+		<Router>
+			<div className="min-h-screen bg-gray-50">
 				<NavComponent />
-				<Switch>
-					<Route exact path="/" component={Home} />
-					<Route path="/about" component={About} />
-					<Route path="/contact" component={Contact} />
-				</Switch>
-			</Router>
-		</AppContextProvider>
+				<main className="container mx-auto px-4 py-8 w-full">
+					<Routes>
+						<Route path="/" element={<Home />} />
+						<Route path="/about" element={<About />} />
+						<Route path="/services" element={<Services />} />
+						<Route path="/contact" element={<Contact />} />
+					</Routes>
+				</main>
+			</div>
+		</Router>
 	);
 };
 
