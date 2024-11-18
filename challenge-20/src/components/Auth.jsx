@@ -1,14 +1,14 @@
 import React, { useState, useMemo } from 'react';
 import { useSelector } from 'react-redux';
 import { useAuth } from '../hooks/useAuth';
+import linuxLogo from '../assets/linuxFlat.svg';
 
 const Auth = () => {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 	const [isRegistering, setIsRegistering] = useState(false);
-
-	// Get auth state and functions
-	const { registerWithEmail, loginWithEmail, signInWithGoogle, signOut } = useAuth();
+	const { registerWithEmail, loginWithEmail, signInWithGoogle, signOut } =
+		useAuth();
 	const { user, loading, error } = useSelector((state) => state.auth);
 
 	const isAuthenticated = useMemo(() => !!user, [user]);
@@ -29,8 +29,8 @@ const Auth = () => {
 		}
 	};
 
-	
-	const isValidForm = useMemo(() => { // Validación del formulario
+	const isValidForm = useMemo(() => {
+		// Validación del formulario
 		return email.includes('@') && password.length >= 6;
 	}, [email, password]);
 
@@ -44,7 +44,14 @@ const Auth = () => {
 				<>
 					<div className="mb-4 text-center">
 						<h2 className="text-2xl font-bold">
-							{isRegistering ? 'Crea una cuenta' : <><strong>Bienvenido!</strong><br /> Entra a tu cuenta</>}
+							{isRegistering ? (
+								'Crea una cuenta'
+							) : (
+								<>
+									<strong>Bienvenido!</strong>
+									<br /> Entra a tu cuenta
+								</>
+							)}
 						</h2>
 					</div>
 
@@ -142,13 +149,9 @@ const Auth = () => {
 						<p className="text-gray-600">{user.email}</p>
 					</div>
 
-					{user.photoURL && (
-						<img
-							src={user.photoURL}
-							alt="Profile"
-							className="w-16 h-16 rounded-full mx-auto mb-4"
-						/>
-					)}
+					<div className="w-16 h-16 rounded-full mx-auto mb-4">
+						<img src={linuxLogo} alt="Profile picture" />
+					</div>
 
 					<button
 						onClick={signOut}

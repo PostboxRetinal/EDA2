@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from './firebase/config';
 import { setUser, setLoading } from './store/authSlice';
-import Auth from './components/Auth'; // This should now work
+import Auth from './components/Auth';
 
 function App() {
 	const dispatch = useDispatch();
@@ -17,9 +17,6 @@ function App() {
 					setUser({
 						uid: user.uid,
 						email: user.email,
-						displayName: user.displayName,
-						photoURL: user.photoURL,
-						emailVerified: user.emailVerified,
 						lastLoginAt: user.metadata.lastSignInTime,
 						createdAt: user.metadata.creationTime,
 					})

@@ -84,8 +84,6 @@ export const useAuth = () => {
 				setUser({
 					uid: userCredential.user.uid,
 					email: userCredential.user.email,
-					displayName: userCredential.user.displayName,
-					photoURL: userCredential.user.photoURL,
 					lastLoginAt: userCredential.user.metadata.lastSignInTime,
 				})
 			);
