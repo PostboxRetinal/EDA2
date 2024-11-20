@@ -1,24 +1,24 @@
 import React, { useState, useMemo } from 'react';
 import { useSelector } from 'react-redux';
 import { useAuth } from '../hooks/useAuth';
-import TodoList from './TodoList';
+import Routeer from './Routeer';
 import linuxLogo from '../assets/linuxFlat.svg';
 
 const Auth = () => {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
-	const [isRegistering, setIsRegistering] = useState(false);
+	const [boolRegistro, setboolRegistro] = useState(false);
 
 	const { registerWithEmail, loginWithEmail, signInWithGoogle, signOut } =
 		useAuth();
-	const { user, loading, error } = useSelector((state) => state.auth);
+	const { user, cargando, error } = useSelector((state) => state.auth);
 
-	const isAuthenticated = useMemo(() => !!user, [user]);
+	const boolAutenticado = useMemo(() => !!user, [user]);
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		try {
-			if (isRegistering) {
+			if (boolRegistro) {
 				await registerWithEmail(email, password);
 			} else {
 				await loginWithEmail(email, password);
@@ -42,21 +42,23 @@ const Auth = () => {
 				<div className="mb-4 p-3 bg-red-100 text-red-700 rounded">{error}</div>
 			)}
 
-			{!isAuthenticated ? (
+			{!boolAutenticado ? (
 				<>
 					<div className="mb-4 text-center">
 						<h2 className="text-2xl font-bold">
-							{isRegistering ? (
+							{boolRegistro ? (
 								'Crea una cuenta'
 							) : (
 								<>
-									<strong>Bienvenido al reto final</strong>
+									<strong>Bienvenido al meetUs alternativo</strong>
 									<br /> Entra a tu cuenta
 								</>
 							)}
 						</h2>
 						<legend>
-							<small>(todo funciona 100% real no fake)</small>
+							<small>
+								(todo funciona 100% real no fake, basado en mi challenge 22)
+							</small>
 						</legend>
 					</div>
 
@@ -90,20 +92,20 @@ const Auth = () => {
 						<div className="space-y-3">
 							<button
 								type="submit"
-								disabled={loading || !isValidForm}
+								disabled={cargando || !isValidForm}
 								className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:opacity-50">
-								{loading
+								{cargando
 									? 'Cargando...'
-									: isRegistering
+									: boolRegistro
 									? 'Registrarse'
 									: 'Login'}
 							</button>
 
 							<button
 								type="button"
-								onClick={() => setIsRegistering(!isRegistering)}
+								onClick={() => setboolRegistro(!boolRegistro)}
 								className="w-full text-sm text-indigo-600 hover:text-indigo-500">
-								{isRegistering
+								{boolRegistro
 									? 'Ya tienes una cuenta? Iniciar Sesión'
 									: 'No tienes una cuenta? Regístrate'}
 							</button>
@@ -122,7 +124,7 @@ const Auth = () => {
 							<button
 								type="button"
 								onClick={signInWithGoogle}
-								disabled={loading}
+								disabled={cargando}
 								className="w-full flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
 								<svg className="w-5 h-5 mr-2" viewBox="0 0 24 24">
 									<path
@@ -154,21 +156,18 @@ const Auth = () => {
 						<p className="text-gray-600">{user.email}</p>
 					</div>
 					<div className="w-16 h-16 rounded-full mx-auto mb-4">
-						<img
-							src={linuxLogo}
-							alt="Profile picture"
-						/>
+						<img src={linuxLogo} alt="Profile picture" />
 					</div>
-
-					<div>
-						<TodoList />
-					</div>
-
 					<button
 						onClick={signOut}
 						className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
 						Cerrar Sesión
 					</button>
+
+					<div>
+						<Routeer/>
+					</div>
+
 				</div>
 			)}
 		</div>
