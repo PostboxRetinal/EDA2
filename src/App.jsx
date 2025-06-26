@@ -1,12 +1,10 @@
-import React from 'react';
 import {
 	BrowserRouter as Router,
 	Routes,
-	Route,
-	useLocation,
+	Route
 } from 'react-router-dom';
 import PrivateRoute from './utils/PrivateRoute';
-import { useAuth, AuthProvider } from './context/authContext';
+import { AuthProvider } from './context/authContext';
 import NavComponent from './components/NavComponent';
 import HomePage from './pages/HomePage';
 import AboutUs from './pages/AboutUs';
@@ -33,9 +31,6 @@ const App = () => {
 };
 
 const AppWithRouter = () => {
-	const location = useLocation();
-	const { dispatch } = useAuth();
-
 	return <App />;
 };
 
