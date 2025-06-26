@@ -10,7 +10,6 @@ function App() {
 
 	useEffect(() => {
 		dispatch(setLoading(true));
-
 		const unsubscribe = onAuthStateChanged(auth, (user) => {
 			if (user) {
 				dispatch(
@@ -25,7 +24,6 @@ function App() {
 				dispatch(setUser(null));
 			}
 		});
-
 		return () => unsubscribe();
 	}, [dispatch]);
 
