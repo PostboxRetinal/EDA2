@@ -14,7 +14,7 @@ const initialState = [
 		description: 'EDA2 | API testing con Postman',
 		done: false,
 	},
-    {
+	{
 		id: new Date().getTime() - 2500,
 		description: 'OGE | Apoyar evento final',
 		done: true,
@@ -34,25 +34,25 @@ export const TodoApp = () => {
 
 	return (
 		<>
-        <div className=''>
-			<h1>TodoApp</h1>
-			<h2>
-				Tareas pendientes: {todos.filter((todo) => !todo.done).length}{' '}<br/>
-                Tareas completadas: {todos.filter((todo) => todo.done).length}{' '}
-			</h2>{' '}
-			<hr />
-			<div className="row">
-				<div className="col-7">
-					<TodoList todos={todos} onDeleteTodo={handleDeleteTodo} />
-				</div>
+			<div className="">
+				<h1>TodoApp</h1>
+				<h2>
+					Tareas pendientes: {todos.filter((todo) => !todo.done).length} <br />
+					Tareas completadas: {todos.filter((todo) => todo.done).length}{' '}
+				</h2>{' '}
+				<hr />
+				<div className="row">
+					<div className="col-7">
+						<TodoList todos={todos} onDeleteTodo={handleDeleteTodo} />
+					</div>
 
-				<div className="col-5">
-					<h4> Agregar nuevo pendiente </h4>
-					<hr />
-					<TodoAdd onNewTodo={handleNewTodo} />
+					<div className="col-5">
+						<h4> Agregar nuevo pendiente </h4>
+						<hr />
+						<TodoAdd onNewTodo={handleNewTodo} />
+					</div>
 				</div>
 			</div>
-        </div>
 		</>
 	);
 };
