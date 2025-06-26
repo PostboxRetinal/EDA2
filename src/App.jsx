@@ -1,9 +1,7 @@
 import { useState } from 'react';
-import reactLogo from './assets/react.svg';
-import viteLogo from '/vite.svg';
+import PropTypes from 'prop-types';
 import './App.css';
 import useTODO from './hooks/useTodo';
-
 function TodoItem({ todo, index, toggleTodo, deleteTodo }) {
 	return (
 		<div className="todo-item">
@@ -16,6 +14,16 @@ function TodoItem({ todo, index, toggleTodo, deleteTodo }) {
 		</div>
 	);
 }
+
+TodoItem.propTypes = {
+	todo: PropTypes.shape({
+		text: PropTypes.string.isRequired,
+		done: PropTypes.bool.isRequired,
+	}).isRequired,
+	index: PropTypes.number.isRequired,
+	toggleTodo: PropTypes.func.isRequired,
+	deleteTodo: PropTypes.func.isRequired,
+};
 
 function App() {
 	const {
@@ -41,14 +49,14 @@ function App() {
 
 	return (
 		<>
-			<div align="center">
+			<div style={{ textAlign: 'center' }}>
 				<h1>
 					Challenge 16
 					<br /> useTodo custom hook
 				</h1>
 			</div>
 
-			<div className="card" align="center">
+			<div className="card" style={{ textAlign: 'center' }}>
 				<input
 					type="text"
 					value={newTodo}
