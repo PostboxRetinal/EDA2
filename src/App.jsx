@@ -1,11 +1,11 @@
 import './App.css'
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { useFetch } from './hooks/useFetch'
 
 function App() {
   const [url, setUrl] = useState("");
   const [dataUrl, setDataUrl] = useState("");
-  const { data, isLoading, hasError } = useFetch(dataUrl);
+  const { data } = useFetch(dataUrl);
 
   const valueUrl = () => {
     setUrl("");
