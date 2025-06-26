@@ -1,16 +1,38 @@
-# Examen Primer Corte
+# Data Structures and Algorithms II - Exams
 
-1.	Implementar una función que tenga como parámetros dos listas enlazadas de números ordenados de mayor a menor
-y que retorne una nueva lista con la unión de ambas y sus elementos ordenados de menor a mayor.<br>
+> Repository containing exam materials for the Data Structures and Algorithms II course
 
-2.	Modificar el algoritmo de árboles binarios, implementar una función para calcular la altura de un árbol.<br>
+## 📋 Exam Overview
 
-# Examen Segundo Corte
+This repository contains the exam requirements and solutions for three academic terms:
 
-Una calculadora haciendo uso de todo lo visto en clase con CSS, Vite y muchas cosas más.
+### 📝 First Term Exam
 
-# Examen Tercer Corte
+1. **Linked Lists Merge Function**
+   - Implement a function that takes two linked lists of numbers ordered from largest to smallest as parameters
+   - Return a new list with the union of both lists, with elements ordered from smallest to largest
 
-- Create a new component, transform the UseReducer – Challenge and then make it works by using Redux.
-- Create a new component, Use the Pokemon - Challenge, and then make it works by using Redux RTK.
+2. **Binary Tree Height Calculation**
+   - Modify the binary tree algorithm to implement a function that calculates the height of a tree
 
+### 🧮 Second Term Exam
+
+#### Calculator Application
+
+- Build a calculator using everything covered in class
+- Technologies: CSS, Vite, and additional modern web technologies
+
+### ⚛️ Third Term Exam
+
+#### Redux Integration Challenges
+
+- **Challenge 1**: Create a new component, transform the UseReducer Challenge and make it work using Redux
+- **Challenge 2**: Create a new component, use the Pokemon Challenge and make it work using Redux RTK
+
+## 🔧 Technologies Used
+
+- **Frontend**: HTML, CSS, JavaScript
+- **Build Tool**: Vite
+- **State Management**: Redux, Redux Toolkit (RTK)
+- **Data Structures**: Linked Lists, Binary Trees
+- **APIs**: Pokemon API (for third term exam)
