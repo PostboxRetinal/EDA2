@@ -19,7 +19,7 @@ export const FirstApp = ({value}) => {
 
     return (
         <>
-            <h1>Challenge 9</h1>
+            <h1>Challenge 8</h1>
             <span>{counter}</span>
             <button onClick={ () => handleAdd() }> +1 </button>
             <button onClick={ () => handleSubstract() }> -1 </button>
